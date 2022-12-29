@@ -13,7 +13,7 @@
     </div>
 
     <!--Country-->
-    <!--<div class="row mb-3">
+    <div class="row mb-3" *ngIf="countries.length !== 0">
         <div class="col">
             <label class="form-label">Country:</label>
             <select class="form-control" formControlName="country">
@@ -21,7 +21,26 @@
                 <option *ngFor="let country of countries" [value]="country.alpha3Code">{{country.name}}</option>
             </select>
         </div>
-    </div>-->
+    </div>
+
+    <!--Borders-->
+    <div class="row mb-3" *ngIf="borders.length > 0">
+        <div class="col">
+            <label class="form-label">Borders:</label>
+            <select class="form-control" formControlName="border">
+                <option value="">-- Choose the border --</option>
+                <option *ngFor="let border of borders" [value]="border.alpha3Code">{{border.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="loading">
+        <div class="col">
+            <div class="alert alert-primary">
+                Loading...
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col">
